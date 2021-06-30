@@ -111,7 +111,11 @@ const ActivityGauge = (props) => {
       <div>
         {getType().map((metric) => {
           return (
-            <button key={metric.label} onClick={() => setType(metric.value)}>
+            <button
+              key={metric.label}
+              onClick={() => setType(metric.value)}
+              disabled={metric.value === type}
+            >
               Show: {metric.label}
             </button>
           );

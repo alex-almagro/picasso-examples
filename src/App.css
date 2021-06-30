@@ -55,3 +55,8 @@ button:hover {
   background-color: darkslategrey;
   color: white;
 }
+button:disabled {
+  background-color: darkslategrey;
+  color: white;
+  cursor: default;
+}

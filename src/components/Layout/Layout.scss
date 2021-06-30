@@ -1,15 +1,17 @@
 #barchart,
 #linearchart,
-#scatterPlot, #pieChart, #activityGauge {
-    height: 500px;
-    position: relative;
-    // padding: 15px;
+#scatterPlot,
+#pieChart,
+#activityGauge {
+  height: 500px;
+  position: relative;
+  // padding: 15px;
 }
 
 .chartPicker {
-    margin: 20px;
+  margin: 20px;
 }
 
 .chartDisplay {
-    margin: 0 50px;
+  margin: 0 50px;
 }
