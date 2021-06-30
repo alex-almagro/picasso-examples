@@ -1,4 +1,4 @@
-// Adapted from: https://observablehq.com/@miralemd/picasso-js-bar-chart?collection=@miralemd/picasso-js
+// Adapted from: https://observablehq.com/collection/@miralemd/picasso-js
 
 import React, { useEffect } from "react";
 import picasso from "picasso.js";

@@ -2,10 +2,12 @@
 #linearchart,
 #scatterPlot,
 #pieChart,
-#activityGauge {
+#activityGauge,
+#stackedBarChart,
+#areaChart,
+#heatMap {
   height: 500px;
   position: relative;
-  // padding: 15px;
 }
 
 .chartPicker {

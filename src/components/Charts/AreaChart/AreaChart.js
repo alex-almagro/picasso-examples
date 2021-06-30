@@ -2,14 +2,16 @@
 
 import React, { useEffect } from "react";
 import picasso from "picasso.js";
-import { getMonths, getStyle } from "../../../utils/utils";
+import { getStyle } from "../../../utils/utils";
 
-const BarChart = (props) => {
+const AreaChart = (props) => {
   const getData = () => {
-    const arr = [["Month", "Sales"]];
-    const months = getMonths();
-    for (let m = 0; m < months.length; m++) {
-      arr.push([months[m], parseFloat((Math.random() * 10000).toFixed(0))]);
+    const arr = [["Year", "Sales"]];
+    for (let i = 0; i < 12; i++) {
+      arr.push([
+        String(2000 + i),
+        parseFloat((Math.random() * 1000).toFixed(0)),
+      ]);
     }
     return [
       {
@@ -24,13 +26,10 @@ const BarChart = (props) => {
       y: {
         data: { field: "Sales" },
         invert: true,
-        include: [0],
+        expand: 0.2,
+        min: 0,
       },
-      c: {
-        data: { field: "Sales" },
-        type: "color",
-      },
-      t: { data: { extract: { field: "Month" } }, padding: 0.3 },
+      t: { data: { extract: { field: "Year" } } },
     },
     components: [
       {
@@ -44,22 +43,27 @@ const BarChart = (props) => {
         scale: "t",
       },
       {
-        key: "bars",
-        type: "box",
+        key: "lines",
+        type: "line",
         data: {
           extract: {
-            field: "Month",
+            field: "Year",
             props: {
-              start: 0,
-              end: { field: "Sales" },
+              v: { field: "Sales" },
             },
           },
         },
         settings: {
-          major: { scale: "t" },
-          minor: { scale: "y" },
-          box: {
-            fill: { scale: "c", ref: "end" },
+          coordinates: {
+            major: { scale: "t" },
+            minor: { scale: "y", ref: "v" },
+          },
+          layers: {
+            curve: "monotone",
+            line: {
+              show: false,
+            },
+            area: {},
           },
         },
       },
@@ -67,8 +71,8 @@ const BarChart = (props) => {
   });
 
   const renderChart = () => {
-    picasso({style: getStyle()}).chart({
-      element: document.querySelector("#barchart"),
+    picasso({ style: getStyle() }).chart({
+      element: document.querySelector("#areaChart"),
       data: getData(),
       settings: getSettings(),
     });
@@ -76,9 +80,7 @@ const BarChart = (props) => {
 
   useEffect(renderChart, []);
 
-  return (
-    <div id="barchart"></div>
-  );
+  return <div id="areaChart"></div>;
 };
 
-export default BarChart;
+export default AreaChart;
