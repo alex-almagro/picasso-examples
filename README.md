@@ -1,6 +1,6 @@
 # picasso.js: Types of charts
 
-Go to the [Charts folder](./components/Charts/) to see the different examples. Take into account that, to render a picasso.js chart, you need to define the following elements:
+Go to the [Charts folder](./src/components/Charts/) to see the different examples. Take into account that, to render a picasso.js chart, you need to define the following elements:
 
 `picasso.chart({
     element: < html element that will encapsulate the chart > ,
