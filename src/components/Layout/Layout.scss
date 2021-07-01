@@ -1,0 +1,19 @@
+#barchart,
+#linearchart,
+#scatterPlot,
+#pieChart,
+#activityGauge,
+#stackedBarChart,
+#areaChart,
+#heatMap {
+  height: 500px;
+  position: relative;
+}
+
+.chartPicker {
+  margin: 20px;
+}
+
+.chartDisplay {
+  margin: 0 50px;
+}
